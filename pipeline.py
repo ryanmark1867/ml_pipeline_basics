@@ -3,11 +3,11 @@ from google.cloud import aiplatform
 from google_cloud_pipeline_components import aiplatform as gcc_aip
 
 project_id = 'first-project-ml-tabular'
-pipeline_root_path = PIPELINE_ROOT
+pipeline_root_path = '/home/ryanmark2023/ml_pipeline'
 
 # Define the workflow of the pipeline.
 @kfp.dsl.pipeline(
-    name="automl-image-training-v2",
+    name="ml-pipeline-tabular",
     pipeline_root=pipeline_root_path)
 def pipeline(project_id: str):
     # The first step of your workflow is a dataset generator.
@@ -17,9 +17,9 @@ def pipeline(project_id: str):
     # output but not the actual returned object from the execution. The value
     # of the object is not accessible at the dsl.pipeline level, and can only be
     # retrieved by providing it as the input to a downstream component.
-    ds_op = gcc_aip.ImageDatasetCreateOp(
+    ds_op = gcc_aip.TabularDatasetCreateOp(
         project=project_id,
-        display_name="flowers",
+        display_name="kl-real-estate",
         gcs_source="gs://cloud-samples-data/vision/automl_classification/flowers/all_data_v2.csv",
         import_schema_uri=aiplatform.schema.dataset.ioformat.image.single_label_classification,
     )
