@@ -27,7 +27,7 @@ def pipeline(project_id: str):
     # outputted from the first step, supplies it as an input argument to the
     # component (see `dataset=ds_op.outputs["dataset"]`), and will put its
     # outputs into `training_job_run_op`.
-    training_job_run_op = gcc_aip.CustomContainerTrainingJobRunOpp(
+    training_job_run_op = gcc_aip.CustomContainerTrainingJobRunOp(
         project=project_id,
         display_name="train-iris-automl-mbsdk-1",
         prediction_type="classification",
