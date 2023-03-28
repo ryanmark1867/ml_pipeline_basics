@@ -20,15 +20,14 @@ def pipeline(project_id: str):
     ds_op = gcc_aip.TabularDatasetCreateOp(
         project=project_id,
         display_name="kl-real-estate",
-        gcs_source="gs://cloud-samples-data/vision/automl_classification/flowers/all_data_v2.csv",
-        import_schema_uri=aiplatform.schema.dataset.ioformat.image.single_label_classification,
+        gcs_source="gs://first-project-ml-tabular-bucket/processed_dataset/kl_real_estate_output.csv",
     )
 
     # The second step is a model training component. It takes the dataset
     # outputted from the first step, supplies it as an input argument to the
     # component (see `dataset=ds_op.outputs["dataset"]`), and will put its
     # outputs into `training_job_run_op`.
-    training_job_run_op = gcc_aip.AutoMLImageTrainingJobRunOp(
+    training_job_run_op = gcc_aip.CustomContainerTrainingJobRunOpp(
         project=project_id,
         display_name="train-iris-automl-mbsdk-1",
         prediction_type="classification",
