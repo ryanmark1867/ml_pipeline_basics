@@ -4,7 +4,7 @@ This repo contains the code for a simple Kubeflow ML pipeline for a trained deep
 
 File descriptions 
 
-- [train_script.py](https://github.com/ryanmark1867/ml_pipeline_basics/blob/master/train_script.py): model training script - adapted from 
+- [train_script.py](https://github.com/ryanmark1867/ml_pipeline_basics/blob/master/train_script.py): model training script - adapted from the notebook version of the training code: [model_training_keras_preprocessing.ipynb](https://github.com/ryanmark1867/deep_learning_best_practices/blob/master/notebooks/model_training_keras_preprocessing.ipynb)
 - [pipeline_script.py](https://github.com/ryanmark1867/ml_pipeline_basics/blob/master/pipeline_script.py): script for Kubeflow pipeline
 
 Here are the articles that describe the deployments in more detail:
